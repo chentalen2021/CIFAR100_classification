@@ -44,11 +44,12 @@ _Fig 1.6 Training process of ResNet18(upper) and ResNet34(down)
 
 The problem is still not solved. Both the shallower and deeper CNN architecture can not bring any notable improvement. Therefore, I guess the models used above lack of the ability to capture enough features of the images from different perspectives. The image quality is 32*32 which is so low even for human eyes to perceive. So, I consider to use a more complex model to extract different image features in parallel. Motivated by the GoogleNet/ Inception model, I decide to combine the concept of GoogleNet model and the ResNet to try to solve the problem. This means, in each Residual block, a convolution, a dilated convolution, and a max pooling layers is used to extract different features from image data, followed by a concatenation of these three features. A shortcut is also used to jump every 2 layers in one block. 
 
-Furthermore, the learning rate is found important for optimising the DNN. Smith (2017) proposes a Cyclical Learning Rate (CLR) strategy for tuning the model. It avoids the fixed learning rate quandary ---- low learnnig rate leading to slow convergence while high lr for Gradient exploding. According to this paper, the following steps are used in my experiment.
+Furthermore, the learning rate is found important for optimising the DNN. Smith (2017) proposes a Cyclical Learning Rate (CLR) strategy for tuning the model. CLR uses a series of learnnig rates between a base and maximal values over different trainning iterations. This dynamic change of learning rates make it form a cycle over and over again. This avoids the fixed learning rate quandary ---- low learnnig rate leading to slow convergence while high lr for Gradient exploding. According to this paper, the following steps are used in my experiment.
 
 One find the maximal and minimal lr range by plotting the accuracy and different lr values.
 
+![image](https://user-images.githubusercontent.com/80739689/113695404-ec0fb000-9724-11eb-8e6f-46880313080c.png)
 
 _Fig 1.7 Accuracy over different learnig rates
 
-The ascending point for acc is 1e-5
+The ascending point for acc is at learning-rate=1.6e-5, while the descending point is 3.98e-4. These are the respective base and maxmimal learning rates in CLR strategy. 
