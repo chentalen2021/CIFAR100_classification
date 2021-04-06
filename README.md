@@ -46,10 +46,11 @@ The problem is still not solved. Both the shallower and deeper CNN architecture 
 
 Furthermore, the learning rate is found important for optimising the DNN. Smith (2017) proposes a Cyclical Learning Rate (CLR) strategy for tuning the model. CLR uses a series of learnnig rates between a base and maximal values over different trainning iterations. This dynamic change of learning rates make it form a cycle over and over again. This avoids the fixed learning rate quandary ---- low learnnig rate leading to slow convergence while high lr for Gradient exploding. According to this paper, the following steps are used in my experiment.
 
-One find the maximal and minimal lr range by plotting the accuracy and different lr values.
+One find the maximal and base lr range by doing a learning rate range test. A predefined range of learning rates are used to train the model with growing values across epochs.
 
 ![image](https://user-images.githubusercontent.com/80739689/113695404-ec0fb000-9724-11eb-8e6f-46880313080c.png)
 
 _Fig 1.7 Accuracy over different learnig rates
 
-The ascending point for acc is at learning-rate=1.6e-5, while the descending point is 3.98e-4. These are the respective base and maxmimal learning rates in CLR strategy. 
+The ascending point for acc is at the second epoch with learning-rate=1.6e-5, while the descending point is at 17th epoch with learning rate of 3.98e-4. These are the respective base and maxmimal learning rates in CLR strategy. The Triangular2 method is selected for the dynamic learning rate training. 
+
