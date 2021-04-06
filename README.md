@@ -54,3 +54,9 @@ _Fig 1.7 Accuracy over different learnig rates
 
 The ascending point for acc is at the second epoch with learning-rate=1.6e-5, while the descending point is at 17th epoch with learning rate of 3.98e-4. These are the respective base and maxmimal learning rates in CLR strategy. The Triangular2 method is selected for the dynamic learning rate training. 
 
+![image](https://user-images.githubusercontent.com/80739689/113697247-0e0a3200-9727-11eb-84f4-1ed7e4b786d8.png)
+
+Fig 1.8 Triangular2 training strategy
+
+
+
